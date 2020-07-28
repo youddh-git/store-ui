@@ -19,11 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
             });
         }else{
             console.log('isAuthenticated false --> ' + this.authService.getToken());
-        }
-        console.log('Intercepted HTTP call**************************************************************');
-        
-        console.log(req);
-        
+        }        
         //const copiedReq = req.clone({ params: req.params.set('auth', this.authService.getToken()) });
         return next.handle(req);
     }
