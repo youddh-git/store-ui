@@ -5,31 +5,41 @@
             <div class="col-lg-12">
                 <div class="box box-bordered style-primary " id="data">
                     <div class="alert alert-danger" *ngIf='errorMessage'>{{errorMessage}}</div>
-                    <div class="alert alert-danger" *ngIf="userTypeForm.dirty && userTypeForm?.invalid && userTypeForm?.touched ">Enter valid values</div>
-                    <div class="alert alert-danger" *ngIf="userTypeForm.dirty && userTypeForm?.invalid && userTypeForm?.touched ">Enter atleast 5 characters in Store Name</div>
+                    <div class="alert alert-danger"
+                        *ngIf="userTypeForm.dirty && userTypeForm?.invalid && userTypeForm?.touched ">Enter valid values
+                    </div>
+                    <div class="alert alert-danger"
+                        *ngIf="userTypeForm.dirty && userTypeForm?.invalid && userTypeForm?.touched ">Enter atleast 5
+                        characters in Store Name</div>
 
                     <div class="box-body style-white">
-                        <form id="userTypeForm" name="userTypeForm" class="form-horizontal form-bordered form-validate" (ngSubmit)="!userTypeForm.invalid && saveData();storeForm.reset()" #storeForm="ngForm">
+                        <form id="userTypeForm" name="userTypeForm" class="form-horizontal form-bordered form-validate"
+                            (ngSubmit)="!userTypeForm.invalid && saveData();userTypeForm.reset()" #userTypeForm="ngForm">
 
                             <div class="form-group">
-                                <input type="hidden" [(ngModel)]="store.id" id="id" name="id" />
+                                <input type="hidden" [(ngModel)]="userType.id" id="id" name="id" />
                                 <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <label for="DiscountType" class="control-label">Store Name</label>
-                                    <input name="storeName" id="storeName" [(ngModel)]="store.storeName" class="form-control " placeholder="Enter Store Name" required="true" maxlength="100" minlength="5" />
+                                    <label for="DiscountType" class="control-label">User Type Name</label>
+                                    <input name="userTypeName" id="userTypeName" [(ngModel)]="userType.userTypeName"
+                                        class="form-control " placeholder="Enter Store Name" required="true"
+                                        maxlength="100" minlength="5" />
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1"></div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <!-- Default unchecked -->
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" [(ngModel)]="store.isActive" name="isActive" id="defaultUnchecked" checked>
-                                        <label class="custom-control-label" for="defaultUnchecked"> Active </label>
+                                        <input type="checkbox" class="custom-control-input"
+                                            [(ngModel)]="userType.isActive" name="isActive" id="isActive"
+                                            checked>
+                                        <label class="custom-control-label" for="isActive"> Active </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1"></div>
                             </div>
                             <div class="form-footer col-sm-offset-5">
                                 <input type="submit" class="btn btn-success" value="Submit" /> &nbsp;
-                                <input type="button" class="btn btn-secondary" (click)="resetData($event);storeForm.reset()" value="Reset" />
+                                <input type="button" class="btn btn-secondary"
+                                    (click)="resetData($event);userTypeForm.reset()" value="Reset" />
                             </div>
                         </form>
                     </div>
@@ -67,11 +77,12 @@
                                         </tbody>
                                     </table>  -->
                                     &nbsp;&nbsp;
-                                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                                        class="row-border hover">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Store Name</th>
+                                                <th>User Type Name</th>
                                                 <th>Active</th>
                                                 <th>Action</th>
                                             </tr>
@@ -82,8 +93,10 @@
                                                 <td>{{ store.storeName }}</td>
                                                 <td>{{ store.active }}</td>
                                                 <td>
-                                                    <button class="btn btn-primary " (click)="editStore(store)">Edit</button>&nbsp;
-                                                    <button class="btn btn btn-danger" (click)="openModal(store)">Delete</button>
+                                                    <button class="btn btn-primary "
+                                                        (click)="editStore(store)">Edit</button>&nbsp;
+                                                    <button class="btn btn btn-danger"
+                                                        (click)="openModal(store)">Delete</button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -91,7 +104,7 @@
                                             <tr>
                                                 <td colspan="3" class="no-data-available">No data!</td>
                                             </tr>
-                                            <tbody>
+                                        <tbody>
                                     </table>
                                 </div>
                             </div>
@@ -116,8 +129,8 @@
             <div class="modal-header">
                 <h5 class="modal-title">Delete Store</h5>
                 <button type="button" class="close" (click)="onCloseHandled()">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <p>are you sure want to delete {{editstore?.storeName}}.</p>

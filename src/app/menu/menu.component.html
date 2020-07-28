@@ -1,18 +1,25 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div><a href="https://www.medicodb.com" class="navbar-brand">
-                Store</a></div>
-
+        <div><a routerlink="/welcome/in28minutes" class=" navbar-brand"> Store</a></div>
         <ul class="nav navbar-nav">
-            <li><a routerLink="/welcome/in28minutes" class="nav-link">Home</a></li>
-            <li><a routerLink="/stores" class="nav-link">Stores</a></li>
-            <li><a routerLink="/usertypes" class="nav-link">User Type</a></li>
+            <li><a routerLink="/welcome/in28minutes" class="nav-link" >Home</a></li>            
         </ul>
 
-
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Menu
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a routerLink="/stores" class="dropdown-item" >Stores</a>
+                <a routerLink="/usertypes" class="dropdown-item" >User Type</a>
+            </div>
+        </div>
+        
         <ul class="navbar-nav navbar-collapse justify-content-end">
-            <li><a routerLink="/login" class="nav-link">Login</a></li>
-            <li><a routerLink="/logout" class="nav-link">Logout</a></li>
+            
+            <li *ngIf="!authService.isAuthenticated()" ><a routerLink="/login" class="nav-link">Login</a></li>
+            <li *ngIf="authService.isAuthenticated()" ><a routerLink="/logout" class="nav-link">Logout</a></li>
         </ul>
     </nav>
 </header>

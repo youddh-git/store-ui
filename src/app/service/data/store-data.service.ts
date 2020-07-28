@@ -16,6 +16,7 @@ export class StoreDataService {
     return this.http.get<Store[]>(`${API_URL}/stores/`);
   }
   saveStore(store:Store){
+    console.log(store);
     return this.http.post(`${API_URL}/stores/save`,store)
   }
   deleteStore(id:number){

@@ -4,15 +4,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="box box-bordered style-primary " id="data">
-
                     <div class="box-head">
-                        <header>
-                            <h4 class="text-light"><i class="fa fa-fw fa-tag"></i> Godown <strong></strong></h4>
-                        </header>
                         <div class="tools">
                             <div class="btn-group btn-group-transparent">
-                                <a class="btn btn-equal" onclick="$('#data').toggle(500);"><i
-                                        class="fa fa-times"></i></a>
+                                <a class="btn btn-equal" onclick="$('#data').toggle(500);"><i class="fa fa-times"></i></a>
                             </div>
                         </div>
                     </div>
@@ -28,16 +23,14 @@
                                 <input type="hidden" [(ngModel)]="store.id" id="id" name="id" />
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label for="DiscountType" class="control-label">Store Name</label>
-                                    <input name="storeName" id="storeName" [(ngModel)]="store.storeName" 
-                                        class="form-control " placeholder="Enter Store Name" required="true"
-                                        maxlength="100" minlength="5" />
+                                    <input name="storeName" id="storeName" [(ngModel)]="store.storeName" class="form-control " placeholder="Enter Store Name" required="true" maxlength="100" minlength="5" />
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1"></div>
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <!-- Default unchecked -->
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" [(ngModel)]="store.isActive"
-                                            name="isActive" id="defaultUnchecked" checked>
+                                            name="isActive" id="defaultUnchecked"  >
                                         <label class="custom-control-label" for="defaultUnchecked"> Active </label>
                                     </div>
                                 </div>
@@ -95,7 +88,7 @@
                                             <tr *ngFor="let store of stores">
                                                 <td>{{ store.id }}</td>
                                                 <td>{{ store.storeName }}</td>
-                                                <td>{{ store.active }}</td>
+                                                <td>{{ store.isActive }}</td>
                                                 <td>
                                                     <button class="btn btn-primary " (click)="editStore(store)" >Edit</button>&nbsp;
                                                     <button class="btn btn btn-danger" (click)="openModal(store)" >Delete</button>

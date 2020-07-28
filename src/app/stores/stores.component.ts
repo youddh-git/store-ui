@@ -73,7 +73,7 @@ export class StoresComponent implements AfterViewInit, OnDestroy,OnInit {
       columns: [
         { data: 'id' }, 
         { data: 'storeName' }, 
-        { data: 'active' },
+        { data: 'isActive' },
         {
           title: 'Action',
           render: function (data: any, type: any, full: any) {
@@ -149,6 +149,7 @@ export class StoresComponent implements AfterViewInit, OnDestroy,OnInit {
   }
   public editStore(editstore) {
     this.store = editstore;
+    
   }
 
 }
